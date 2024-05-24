@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ],
       };
   
-      const encodedTransactionData = encodeURIComponent(JSON.stringify(transferTransaction));
+      const encodedTransactionData = encodeURIComponent(encodeURI (JSON.stringify(transferTransaction)));
       const callbackUrl = encodeURIComponent(window.location.origin + window.location.pathname);
       const signTransactionUrl = `https://testnet.wallet.mintbase.xyz/sign-transaction?transactions_data=${encodedTransactionData}&callback_url=${callbackUrl}`;
       window.location.href = signTransactionUrl;
