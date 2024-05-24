@@ -15,12 +15,29 @@ document.addEventListener('DOMContentLoaded', () => {
     window.location.href = connectUrl;
   });
 
-  signTransactionButton.addEventListener('click', () => {
-    const transactionsData = { /* your transaction data here */ };
-    const encodedTransactionData = encodeURIComponent(JSON.stringify(transactionsData));
-    const callbackUrl = encodeURIComponent(window.location.origin + window.location.pathname);
-    const signTransactionUrl = `https://testnet.wallet.mintbase.xyz/sign-transaction?transactions_data=${encodedTransactionData}&callback_url=${callbackUrl}`;
-    window.location.href = signTransactionUrl;
+
+    signTransactionButton.addEventListener('click', () => {
+      const signerId = 'matrix-harrison.testnet';
+      const receiverId = 'beat_koloth.testnet';
+      const deposit = '1000000000000000000000000'; // Amount in yoctoNEAR (1 NEAR)
+      
+      const transferTransaction = {
+        signerId,
+        receiverId,
+        actions: [
+          {
+            type: 'Transfer',
+            params: {
+              deposit,
+            },
+          },
+        ],
+      };
+  
+      const encodedTransactionData = encodeURIComponent(JSON.stringify(transferTransaction));
+      const callbackUrl = encodeURIComponent(window.location.origin + window.location.pathname);
+      const signTransactionUrl = `https://testnet.wallet.mintbase.xyz/sign-transaction?transactions_data=${encodedTransactionData}&callback_url=${callbackUrl}`;
+      window.location.href = signTransactionUrl;
   });
 
   const urlParams = new URLSearchParams(window.location.search);
