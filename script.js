@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   connectWalletButton.addEventListener('click', () => {
     const successUrl = encodeURIComponent(window.location.origin + window.location.pathname);
-    const connectUrl = `https://wallet.mintbase.xyz/connect?success_url=${successUrl}`;
+    const connectUrl = `https://testnet.wallet.mintbase.xyz/connect?success_url=${successUrl}`;
     window.location.href = connectUrl;
   });
 
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const transactionsData = { /* your transaction data here */ };
     const encodedTransactionData = encodeURIComponent(JSON.stringify(transactionsData));
     const callbackUrl = encodeURIComponent(window.location.origin + window.location.pathname);
-    const signTransactionUrl = `https://wallet.mintbase.xyz/sign-transaction?transactions_data=${encodedTransactionData}&callback_url=${callbackUrl}`;
+    const signTransactionUrl = `https://testnet.wallet.mintbase.xyz/sign-transaction?transactions_data=${encodedTransactionData}&callback_url=${callbackUrl}`;
     window.location.href = signTransactionUrl;
   });
 
