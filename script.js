@@ -21,13 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const receiverId = 'beat_koloth.testnet';
       const deposit = '1000000000000000000000000'; // Amount in yoctoNEAR (1 NEAR)
       
-      const transferTransaction = {
-        signerId,
-        receiverId,
-        actions:action
-      };
-
-
       const action = {
         type: "FunctionCall",
         params: {
@@ -37,7 +30,13 @@ document.addEventListener('DOMContentLoaded', () => {
           deposit: 50000000000000000000000(),
         },
       };
-  
+
+      const transferTransaction = {
+        signerId,
+        receiverId,
+        actions:action
+      };
+
       const encodedTransactionData = encodeURIComponent(encodeURI (JSON.stringify(transferTransaction)));
       const callbackUrl = encodeURIComponent(window.location.origin + window.location.pathname);
       const signTransactionUrl = `https://testnet.wallet.mintbase.xyz/sign-transaction?transactions_data=${encodedTransactionData}&callback_url=${callbackUrl}`;
