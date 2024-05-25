@@ -31,11 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
         },
       };
 
-      const transferTransaction = {
+      const transferTransaction = [{
         signerId,
         receiverId,
         actions: _actions
-      };
+      }];
 
       const encodedTransactionData = encodeURIComponent(encodeURI (JSON.stringify(transferTransaction)));
       const callbackUrl = encodeURIComponent(window.location.origin + window.location.pathname);
