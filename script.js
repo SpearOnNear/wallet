@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
           methodName: "addMessage",
           args: { text: "Logging In" },
           gas: 30000000000000,
-          deposit: 50000000000000000000000(),
+          deposit: 50000000000000000000000,
         },
       };
 
