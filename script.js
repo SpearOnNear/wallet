@@ -19,23 +19,20 @@ document.addEventListener('DOMContentLoaded', () => {
     signTransactionButton.addEventListener('click', () => {
       const signerId = 'matrix-harrison.testnet';
       const receiverId = 'beat_koloth.testnet';
-      const deposit = '1000000000000000000000000'; // Amount in yoctoNEAR (1 NEAR)
+      const deposit = '100000000000000000000'; // Amount in yoctoNEAR (1 NEAR)
       
-      const _actions = {
-        type: "FunctionCall",
+      const _actions = [{
+        type: "Transfer",
         params: {
-          methodName: "addMessage",
-          args: { text: "Logging In" },
-          gas: 30000000000000,
-          deposit: 50000000000000000000000,
+          deposit: deposit
         },
-      };
+      }];
 
-      const transferTransaction = [{
+      const transferTransaction = {
         signerId,
         receiverId,
         actions: _actions
-      }];
+      };
 
       const encodedTransactionData = encodeURIComponent(encodeURI (JSON.stringify(transferTransaction)));
       const callbackUrl = encodeURIComponent(window.location.origin + window.location.pathname);
