@@ -21,12 +21,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const receiverId = 'beat_koloth.testnet';
       const deposit = '100000000000000000000'; // Amount in yoctoNEAR (1 NEAR)
       
-      const _actions = {
+      const _actions = [{
         type: "Transfer",
         params: {
           deposit: deposit
         },
-      };
+      }];
 
       const transferTransaction = [{
         receiverId,
