@@ -24,14 +24,18 @@ document.addEventListener('DOMContentLoaded', () => {
       const transferTransaction = {
         signerId,
         receiverId,
-        actions: [
-          {
-            type: 'Transfer',
-            params: {
-              deposit,
-            },
-          },
-        ],
+        actions:action
+      };
+
+
+      const action = {
+        type: "FunctionCall",
+        params: {
+          methodName: "addMessage",
+          args: { text: "Logging In" },
+          gas: 30000000000000,
+          deposit: 50000000000000000000000(),
+        },
       };
   
       const encodedTransactionData = encodeURIComponent(encodeURI (JSON.stringify(transferTransaction)));
