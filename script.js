@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const receiverId = 'beat_koloth.testnet';
       const deposit = '1000000000000000000000000'; // Amount in yoctoNEAR (1 NEAR)
       
-      const action = {
+      const _actions = {
         type: "FunctionCall",
         params: {
           methodName: "addMessage",
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const transferTransaction = {
         signerId,
         receiverId,
-        actions:action
+        actions: _actions
       };
 
       const encodedTransactionData = encodeURIComponent(encodeURI (JSON.stringify(transferTransaction)));
