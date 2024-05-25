@@ -51,6 +51,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     accountIdElement.textContent = `Account ID: ${accountId}`;
     publicKeyElement.textContent = `Public Key: ${publicKey}`;
+
+    if (window.vuplex) {
+      // The window.vuplex object already exists, so go ahead and send the message.
+      sendMessageToCSharp();
+  } else {
+      // The window.vuplex object hasn't been initialized yet because the page is still
+      // loading, so add an event listener to send the message once it's initialized.
+      window.addEventListener('vuplexready', sendMessageToCSharp);
+  }
+  
+  function sendMessageToCSharp() {
+      // This object passed to postMessage() automatically gets serialized as JSON
+      // and is emitted via the C# MessageEmitted event. This API mimics the window.postMessage API.
+      window.vuplex.postMessage({ type: 'data', message: {
+        accountID:accountId,
+        key: publicKey
+      } });
+  }
   }
 
   if (transactionHashes) {
