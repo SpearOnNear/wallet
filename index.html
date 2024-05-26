@@ -1,27 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meteor Wallet Integration</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unity WebGL Interaction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        #container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        #messageInput {
+            width: 300px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        #sendMessageButton {
+            padding: 10px 20px;
+            border: none;
+            background-color: #007BFF;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        #sendMessageButton:hover {
+            background-color: #0056b3;
+        }
+        #receivedMessage {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #e9ecef;
+            width: 300px;
+            word-wrap: break-word;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Welcome to Meteor Wallet Integration</h1>
-    <button id="connect-wallet">Connect Wallet</button>
-  </div>
-  <!-- Load the libraries -->
-  <script src="https://cdn.jsdelivr.net/npm/near-api-js@0.44.2/dist/near-api-js.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@near-wallet-selector/core@8.9.7/+esm"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@near-wallet-selector/meteor-wallet/+esm"></script>
-  <!-- Ensure the correct global namespace -->
-  <script>
-    // Check for the global objects created by the UMD scripts
-    console.log("walletSelectorCore:", window.walletSelectorCore);
-    console.log("walletSelectorMeteorWallet:", window.walletSelectorMeteorWallet);
-  </script>
-  <!-- Load the app script -->
-  <script src="app.js"></script>
+    <div id="container">
+        <h2>Unity WebGL Interaction</h2>
+        <input type="text" id="messageInput" placeholder="Enter a message to send to Unity">
+        <button id="sendMessageButton">Send Message to Unity</button>
+        <div id="receivedMessage">No message received from Unity yet.</div>
+    </div>
+
+    <script>
+        // Function to send a message to the Unity WebGL application
+        function sendMessageToUnity(message) {
+            if (window.opener) {
+                window.opener.postMessage(message, window.location.origin);
+            } else {
+                console.warn("No opener window found.");
+            }
+        }
+
+        // Handle messages received from the Unity WebGL application
+        window.addEventListener('message', function(event) {
+            if (event.origin === window.location.origin) {
+                const message = event.data;
+                document.getElementById('receivedMessage').innerText = "Received from Unity: " + message;
+            }
+        });
+
+        document.getElementById('sendMessageButton').addEventListener('click', function() {
+            const message = document.getElementById('messageInput').value;
+            sendMessageToUnity(message);
+        });
+    </script>
 </body>
 </html>
