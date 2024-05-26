@@ -4,16 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Meteor Wallet Integration</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="container">
     <h1>Welcome to Meteor Wallet Integration</h1>
     <button id="connect-wallet">Connect Wallet</button>
   </div>
+  <!-- Load the libraries -->
   <script src="https://cdn.jsdelivr.net/npm/near-api-js@0.44.2/dist/near-api-js.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@near-wallet-selector/core/dist/near-wallet-selector-core.umd.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@near-wallet-selector/meteor-wallet/dist/near-wallet-selector-meteor-wallet.umd.js"></script>
-  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@near-wallet-selector/core@8.9.7/+esm"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@near-wallet-selector/meteor-wallet/+esm"></script>
+  <!-- Ensure the correct global namespace -->
+  <script>
+    // Check for the global objects created by the UMD scripts
+    console.log("walletSelectorCore:", window.walletSelectorCore);
+    console.log("walletSelectorMeteorWallet:", window.walletSelectorMeteorWallet);
+  </script>
+  <!-- Load the app script -->
+  <script src="app.js"></script>
 </body>
 </html>
