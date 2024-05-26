@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
   //   accountIdElement.textContent = `Account ID: ${accountId}`;
   //   publicKeyElement.textContent = `Public Key: ${publicKey}`;
 
-   
+
   
   function sendMessageToCSharp() {
       // This object passed to postMessage() automatically gets serialized as JSON
@@ -73,10 +73,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   }
 
-  if (transactionHashes) {
-    successPage.style.display = 'none';
-    transactionPage.style.display = 'block';
+  // if (transactionHashes) {
+  //   successPage.style.display = 'none';
+  //   transactionPage.style.display = 'block';
 
-    transactionHashesElement.textContent = `Transaction Hashes: ${transactionHashes}`;
-  }
-});
+  //   transactionHashesElement.textContent = `Transaction Hashes: ${transactionHashes}`;
+  // }}
+);
