@@ -63,10 +63,12 @@
         // Function to send a message to the Unity WebGL application
         function sendMessageToUnity(message) {
             if (window.opener) {
-                window.opener.postMessage({
-                  name:"ashikur Rahman",
-                  balance: "10000"
-                }, "*");
+
+              var messageObject = {
+    name: "John Doe",  // Example name
+    balance: 1234.56   // Example balance
+};
+window.opener.postMessage(JSON.stringify(messageObject), "*"); 
             } else {
                 console.warn("No opener window found.");
             }
