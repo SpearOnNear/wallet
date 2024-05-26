@@ -3,27 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wallet Integration</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Meteor Wallet Integration</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container" id="mainPage">
-    <h1>Wallet Integration</h1>
-    <button id="connectWalletButton">Connect Wallet</button>
+  <div class="container">
+    <h1>Welcome to Meteor Wallet Integration</h1>
+    <button id="connect-wallet">Connect Wallet</button>
   </div>
-
-  <div class="container" id="successPage" style="display: none;">
-    <h1>Wallet Connected</h1>
-    <p id="accountId"></p>
-    <p id="publicKey"></p>
-    <button id="signTransactionButton">Sign Transaction</button>
-  </div>
-
-  <div class="container" id="transactionPage" style="display: none;">
-    <h1>Transaction Signed</h1>
-    <p id="transactionHashes"></p>
-  </div>
-
+  <script src="https://cdn.jsdelivr.net/npm/near-api-js@0.44.2/dist/near-api-js.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@near-wallet-selector/core/dist/near-wallet-selector-core.umd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@near-wallet-selector/meteor-wallet/dist/near-wallet-selector-meteor-wallet.umd.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
