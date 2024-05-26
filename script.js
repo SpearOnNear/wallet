@@ -66,10 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function sendMessageToCSharp() {
       // This object passed to postMessage() automatically gets serialized as JSON
       // and is emitted via the C# MessageEmitted event. This API mimics the window.postMessage API.
-      window.vuplex.postMessage({ type: 'data', message: {
-        accountID:"my account id",
-        key: "publicKey"
-      } });
+      window.vuplex.postMessage({ type: 'data', message: 'Hello World'});
   }
 
 
