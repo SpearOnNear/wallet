@@ -67,8 +67,8 @@ document.addEventListener('DOMContentLoaded', () => {
       // This object passed to postMessage() automatically gets serialized as JSON
       // and is emitted via the C# MessageEmitted event. This API mimics the window.postMessage API.
       window.vuplex.postMessage({ type: 'data', message: {
-        accountID:accountId,
-        key: publicKey
+        accountID:"my account id",
+        key: "publicKey"
       } });
   }
   }
