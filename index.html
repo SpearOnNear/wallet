@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wallet Integration</title>
     <link rel="stylesheet" href="style.css">
+
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
     <header>
@@ -13,14 +15,14 @@
     
     <main>
         <section id="mainPage">
-            <button id="connectWalletButton">Connect Wallet</button>
+            <button id="connectWalletButton" style="display: none;">Connect Wallet</button>
         </section>
 
-        <section id="successPage" style="display: none;">
+        <section id="successPage" >
             <h2>Wallet Connected</h2>
             <p id="accountId"></p>
             <p id="publicKey"></p>
-            <button id="signTransactionButton">Sign Transaction</button>
+            <button id="signTransactionButton">Continue</button>
         </section>
 
         <section id="transactionPage" style="display: none;">
