@@ -13,22 +13,22 @@
     
     <main>
         <section id="mainPage">
-            <button id="connectWalletButton" class="btn">Connect Wallet</button>
+            <button id="connectWalletButton">Connect Wallet</button>
         </section>
 
-        <section id="successPage" class="hidden">
+        <section id="successPage" style="display: none;">
             <h2>Wallet Connected</h2>
-            <p id="accountId" class="info"></p>
-            <p id="publicKey" class="info"></p>
-            <button id="signTransactionButton" class="btn">Sign Transaction</button>
+            <p id="accountId"></p>
+            <p id="publicKey"></p>
+            <button id="signTransactionButton">Sign Transaction</button>
         </section>
 
-        <section id="transactionPage" class="hidden">
-            <h2>Continue</h2>
-            <p id="transactionHashes" class="info"></p>
+        <section id="transactionPage" style="display: none;">
+            <h2>Transaction Signed</h2>
+            <p id="transactionHashes"></p>
         </section>
     </main>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
     <script src="script.js"></script>
 </body>
 </html>
