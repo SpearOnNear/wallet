@@ -1,29 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wallet Integration</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet Integration</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container" id="mainPage">
-    <h1>Wallet Integration</h1>
-    <button id="connectWalletButton">Connect Wallet</button>
-  </div>
+    <header>
+        <h1>Wallet Integration</h1>
+    </header>
+    
+    <main>
+        <section id="mainPage">
+            <button id="connectWalletButton" class="btn">Connect Wallet</button>
+        </section>
 
-  <div class="container" id="successPage" style="display: none;">
-    <h1>Wallet Connected</h1>
-    <p id="accountId"></p>
-    <p id="publicKey"></p>
-    <button id="signTransactionButton">Sign Transaction</button>
-  </div>
+        <section id="successPage" class="hidden">
+            <h2>Wallet Connected</h2>
+            <p id="accountId" class="info"></p>
+            <p id="publicKey" class="info"></p>
+            <button id="signTransactionButton" class="btn">Sign Transaction</button>
+        </section>
 
-  <div class="container" id="transactionPage" style="display: none;">
-    <h1>Transaction Signed</h1>
-    <p id="transactionHashes"></p>
-  </div>
+        <section id="transactionPage" class="hidden">
+            <h2>Transaction Signed</h2>
+            <p id="transactionHashes" class="info"></p>
+        </section>
+    </main>
 
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
