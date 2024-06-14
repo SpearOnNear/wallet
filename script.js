@@ -32,6 +32,5 @@ document.addEventListener('DOMContentLoaded', () => {
     successPage.style.display = 'block';
 
     accountIdElement.textContent = `Account ID: ${accountId}`;
-    publicKeyElement.textContent = `Public Key: ${publicKey}`;
   }
 });
