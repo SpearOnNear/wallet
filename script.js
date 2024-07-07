@@ -8,9 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (accountId) {
     accountIdElement.value = accountId;
   }
-
-  console.log(accountIdElement.value)
-
   signTransactionButton.addEventListener('click', () => {
     const data = {
       type:'connection',
