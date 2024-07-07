@@ -12,8 +12,13 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log(accountIdElement.value)
 
   signTransactionButton.addEventListener('click', () => {
+    const data = {
+      type:'connection',
+      status:'success',
+      walletId: accountId
+    }
     const tg = window.Telegram.WebApp;
-    tg.sendData(accountId);
+    tg.sendData(JSON.stringify(data));
   });
 
   
