@@ -3,32 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wallet Integration</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Review Transaction</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+        }
+        .review-transaction {
+            max-width: 400px;
+            width: 100%;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+        }
+        .review-transaction h4 {
+            margin-bottom: 20px;
+        }
+        .review-transaction .transaction-details {
+            margin-bottom: 20px;
+        }
+        .review-transaction .transaction-details .form-group {
+            margin-bottom: 10px;
+        }
+        .review-transaction .btn-pay {
+            width: 100%;
+            background-color: black;
+            color: white;
+            border: none;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Wallet Integration</h1>
-    </header>
-    
-    <main>
-        <section id="mainPage">
-            <button id="connectWalletButton" style="display: none;">Connect Wallet</button>
-        </section>
 
-        <section id="successPage">
-            <h2>Wallet Connected</h2>
-            <p id="accountId"></p>
-            <button id="signTransactionButton">Continue</button>
-        </section>
+<div class="review-transaction">
+    <h4 class="text-center">Wallet Connected</h4>
+    <div class="transaction-details">
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Wallet</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="accountId" disabled>
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-pay" id="continuebtn">Continue</button>
+</div>
 
-        <section id="transactionPage" style="display: none;">
-            <h2>Transaction Signed</h2>
-            <p id="transactionHashes"></p>
-        </section>
-    </main>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="script.js"></script>
 
-    <script src="script.js"></script>
 </body>
 </html>
